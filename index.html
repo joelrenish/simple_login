@@ -14,17 +14,32 @@
 
 <body class="body-login">
     <main>
-        <div class="small-container">
-            <h1>Log in</h1>
-            <form class="" id="loginForm">
-                <label>Username</label>
-                <input type="text" id="username" required maxlength="10" placeholder="username">
-                <label>Password</label>
-                <input type="password" id="password" required maxlength="8" placeholder="password">
-                <button type="submit" class="submit-btn">Login</button>
-            </form>
-            <p id="errorMessage" class="">
-            </p>
+        <div class="large-container">
+            <div class="small-container">
+                <h1>Log in</h1>
+                <div class="center-nav">
+                    <button type="button" class="nav-button" id="regularButton">Regular Login</button>
+                    <button type="button" class="nav-button" id="otpButton">OTP</button>
+                </div>
+                <form id="loginForm">
+                    <label>Username</label>
+                    <input type="text" id="username" required maxlength="10" placeholder="username">
+                    <p id="usernameError" class="errorM hidden">Username can't include special characters.</p>
+
+                    <label>Password</label>
+                    <input type="password" id="password" required maxlength="8" placeholder="password">
+                    <p id="passwordError" class="errorM hidden">Password needs to include at least 1 special character and 1 number.</p>
+
+                    <button type="submit" class="submit-btn">Login</button>
+                </form>
+                <form id="OTPForm" class="hidden">
+                    <label>Phone Number</label>
+                    <input type="number" inputmode="numeric" id="phone" required maxlength="10" placeholder="phone number">
+                    <p id="usernameError" class="errorM hidden">Username can't include special characters.</p>
+                    <button type="submit" class="submit-btn">Get OTP</button>
+                </form>
+                <p id="successMessage" class="success hidden"></p>
+            </div>
         </div>
     </main>
     <script src="index.js"></script>

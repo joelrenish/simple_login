@@ -1,18 +1,32 @@
 body {
   font-family: Helvetica, sans-serif;
+  background-color: #e7e7e7;
+}
+
+.large-container {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .small-container {
-  border: 2px solid #007bff;
-  border-radius: 5%;
+  border: 2px solid #888888;
+  background-color: #f8f8f8;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px;
+
   left: 50%;
   transform: translate(-50%, 0);
   position: absolute;
   top: 30px;
+}
+
+.left {
+  width: 50%;
+  height: auto;
+  left: 0;
 }
 
 form {
@@ -22,13 +36,16 @@ form {
   justify-content: space-evenly;
 }
 
+label {
+  margin-top: 10px;
+}
+
 input {
   display: block;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 300px;
   margin-top: 3px;
-  margin-bottom: 15px;
   padding: 10px;
 }
 input:focus {
@@ -37,11 +54,20 @@ input:focus {
   box-shadow: 0 0 5px #007bff;
 }
 
+.failed {
+  border-color: #ce0000;
+  box-shadow: 0 0 5px #ce0000;
+}
+.failed:focus {
+  border-color: #ce0000;
+  box-shadow: 0 0 5px #ce0000;
+}
+
 .submit-btn {
   display: block;
   width: 200px;
   height: 40px;
-  margin: 0 auto;
+  margin: 20px auto;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -58,17 +84,33 @@ input:focus {
   box-shadow: 0 0 5px #007bff;
 }
 
-#errorMessage {
-  margin-top: 20px;
-  width: 80%;
+.errorM {
   font-size: 10px;
-  text-align: center;
-}
-
-.failed {
+  margin-bottom: 0px;
   color: #ce0000;
 }
 
-.succeeded {
+.success {
+  margin: 0px auto;
   color: #14a51b;
+}
+
+.hidden {
+  display: none;
+}
+
+.center-nav {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.nav-button {
+  margin: 0 10px;
+  padding: 6px 10px;
+  background-color: #555;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
 }

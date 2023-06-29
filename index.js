@@ -1,29 +1,52 @@
 'use strict';
 
-let specialCharacters = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-let success = true;
+let specialCharacters = /[\ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
 document.getElementById("loginForm").addEventListener("submit", (event) => {
   event.preventDefault();
-  let errorM = document.getElementById("errorMessage");
-  let username = document.getElementById("username").value;
-  let password = document.getElementById("password").value;
-  if (specialCharacters.test(username)) {
-    errorM.textContent = "Username can't include special characters.";
+  let success = true;
+  let username = document.getElementById("username");
+  let password = document.getElementById("password");
+
+  if (specialCharacters.test(username.value)) {
+    document.getElementById("usernameError").classList.remove("hidden");
+    username.classList.add("failed");
     success = false;
   }
-  else if (!specialCharacters.test(password) || !/\d/.test(password)) {
-    errorM.textContent = "Password needs to include at least 1 special character and 1 number.";
+  if (!specialCharacters.test(password) || !/\d/.test(password.value)) {
+    document.getElementById("passwordError").classList.remove("hidden");
+    password.classList.add("failed");
     success = false;
   }
-  else { success = true; }
   if (success) {
-    errorM.classList.add("succeeded");
-    errorM.classList.remove("failed");
-    errorM.textContent = `Hello ${username}!`;
-    console.log(`Logged in as ${username}! using ${password} as the password`);
-  } else {
-    errorM.classList.remove("succeeded");
-    errorM.classList.add("failed");
+    username.classList.remove("failed");
+    password.classList.remove("failed");
+
+    let successMessage = document.getElementById("successMessage");
+    successMessage.classList.remove("hidden");
+    successMessage.textContent = `Hello ${username.value}!`;
+    console.log(`Logged in as ${username.value}! using ${password.value} as the password`);
   }
+});
+
+// remove error messages on change
+document.getElementById("username").addEventListener("input", (event) => {
+  document.getElementById("usernameError").classList.add("hidden");
+  event.target.classList.remove("failed");
+});
+
+document.getElementById("password").addEventListener("input", (event) => {
+  document.getElementById("passwordError").classList.add("hidden");
+  event.target.classList.remove("failed");
+});
+
+// change forms with these buttons
+document.getElementById("otpButton").addEventListener("click", () => {
+  document.getElementById("loginForm").classList.add("hidden");
+  document.getElementById("OTPForm").classList.remove("hidden");
+});
+
+document.getElementById("regularButton").addEventListener("click", () => {
+  document.getElementById("OTPForm").classList.add("hidden");
+  document.getElementById("loginForm").classList.remove("hidden");
 });
