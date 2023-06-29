@@ -1,6 +1,6 @@
 'use strict';
 
-let specialCharacters = /[\ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+let specialCharacters = /[\s `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
 document.getElementById("loginForm").addEventListener("submit", (event) => {
   event.preventDefault();
@@ -19,13 +19,7 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
     success = false;
   }
   if (success) {
-    username.classList.remove("failed");
-    password.classList.remove("failed");
-
-    let successMessage = document.getElementById("successMessage");
-    successMessage.classList.remove("hidden");
-    successMessage.textContent = `Hello ${username.value}!`;
-    console.log(`Logged in as ${username.value}! using ${password.value} as the password`);
+    login(username, password);
   }
 });
 
@@ -41,12 +35,30 @@ document.getElementById("password").addEventListener("input", (event) => {
 });
 
 // change forms with these buttons
-document.getElementById("otpButton").addEventListener("click", () => {
+document.getElementById("otpButton").addEventListener("click", (event) => {
+  event.target.classList.add("selected");
+  document.getElementById("regularButton").classList.remove("selected");
+
   document.getElementById("loginForm").classList.add("hidden");
   document.getElementById("OTPForm").classList.remove("hidden");
 });
 
-document.getElementById("regularButton").addEventListener("click", () => {
+document.getElementById("regularButton").addEventListener("click", (event) => {
+  event.target.classList.add("selected");
+  document.getElementById("otpButton").classList.remove("selected");
+
   document.getElementById("OTPForm").classList.add("hidden");
   document.getElementById("loginForm").classList.remove("hidden");
 });
+
+function login(username, password) {
+  // assuming user/pass combo is correct
+  username.classList.remove("failed");
+  password.classList.remove("failed");
+  let successMessage = document.getElementById("successMessage");
+  successMessage.classList.remove("hidden");
+  successMessage.textContent = `Hello ${username.value}!`;
+  console.log(`Logged in as ${username.value} using ${password.value} as the password`);
+
+  localStorage.setItem('username', username.value);
+}

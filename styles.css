@@ -1,6 +1,6 @@
 body {
   font-family: Helvetica, sans-serif;
-  background-color: #e7e7e7;
+  background-color: #c4c4c4;
 }
 
 .large-container {
@@ -9,24 +9,18 @@ body {
   justify-content: center;
 }
 
-.small-container {
-  border: 2px solid #888888;
+.center-container {
+  border: 2px solid #979797;
   background-color: #f8f8f8;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
+  padding: 0px 0px 20px 0px;
 
   left: 50%;
   transform: translate(-50%, 0);
   position: absolute;
   top: 30px;
-}
-
-.left {
-  width: 50%;
-  height: auto;
-  left: 0;
 }
 
 form {
@@ -53,6 +47,11 @@ input:focus {
   border-color: #007bff;
   box-shadow: 0 0 5px #007bff;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 .failed {
   border-color: #ce0000;
@@ -67,7 +66,7 @@ input:focus {
   display: block;
   width: 200px;
   height: 40px;
-  margin: 20px auto;
+  margin: 30px auto 10px auto;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -93,6 +92,7 @@ input:focus {
 .success {
   margin: 0px auto;
   color: #14a51b;
+  text-align: center;
 }
 
 .hidden {
@@ -100,17 +100,29 @@ input:focus {
 }
 
 .center-nav {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  padding: 10px;
+  flex-flow: row nowrap;
+  margin-bottom: 20px;
 }
 
-.nav-button {
-  margin: 0 10px;
-  padding: 6px 10px;
-  background-color: #555;
+.nav-btn {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 14px;
+  height: 100%;
+  width: 50%;
+  min-width: 200px;
+  background-color: #777777;
   color: #fff;
-  border: none;
-  border-radius: 4px;
   font-size: 16px;
+  border: none;
+}
+.nav-btn:hover {
+  border: 3px 3px 0px 3px solid #ff0000;
+}
+
+.selected {
+  background-color: #f8f8f8;
+  color: #000;
 }
