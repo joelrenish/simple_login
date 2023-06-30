@@ -14,16 +14,18 @@
 
 <body class="body-login">
     <main>
+        <header>
+            <p>links to rest of site</p>
+        </header>
         <div class="large-container">
+            <img src="imgs/jr.png" alt="paint and graffiti-style JR" width="500" height="500">
 
-
-            <div class="center-container">
+            <div class="login-container">
                 <div class="center-nav">
                     <button type="button" class="nav-btn selected" id="regularButton">Login</button>
                     <button type="button" class="nav-btn" id="otpButton">Sign in with OTP</button>
                 </div>
                 <div class="content">
-                    <!-- <h1 id="instruction">Log in</h1> -->
                     <form id="loginForm">
                         <label for="username">Username</label>
                         <input type="text" id="username" required maxlength="10" placeholder="username">
@@ -37,7 +39,7 @@
                     </form>
                     <form id="OTPForm" class="hidden">
                         <label for="phone">Phone Number</label>
-                        <input type="number" inputmode="numeric" id="phone" required maxlength="10" placeholder="phone number">
+                        <input type="tel" id="phone" required maxlength="10" placeholder="123-456-7890">
                         <button type="submit" class="submit-btn">Send OTP</button>
                     </form>
                     <p id="successMessage" class="success hidden"></p>
