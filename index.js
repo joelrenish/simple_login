@@ -42,40 +42,67 @@ document.getElementById("phone").addEventListener("keydown", function(e) {
 });
 
 // change forms with these buttons
+// switch to OTP form
 document.getElementById("otpButton").addEventListener("click", (event) => {
   event.target.classList.add("selected");
   document.getElementById("regularButton").classList.remove("selected");
   document.getElementById("loginForm").classList.add("hidden");
   document.getElementById("OTPForm").classList.remove("hidden");
 
+  // reset user/pass fields
+  document.getElementById("username").value = "";
+  document.getElementById("password").value = "";
+  username.classList.remove("failed");
+  password.classList.remove("failed");
+
   document.getElementById("successMessage").classList.add("hidden");
 });
 
+// switch to password form
 document.getElementById("regularButton").addEventListener("click", (event) => {
   event.target.classList.add("selected");
   document.getElementById("otpButton").classList.remove("selected");
   document.getElementById("OTPForm").classList.add("hidden");
   document.getElementById("loginForm").classList.remove("hidden");
 
+  // reset phone field
+  document.getElementById("phone").value = "";
+
   document.getElementById("successMessage").classList.add("hidden");
 });
 
 function login(username, password) {
+  // connect back-end
+
   // assuming user/pass combo is correct
   username.classList.remove("failed");
   password.classList.remove("failed");
   let successMessage = document.getElementById("successMessage");
   successMessage.classList.remove("hidden");
-  successMessage.textContent = `Hello ${username.value}!`;
+  successMessage.textContent = "Success!" //`Hello ${username.value}!`;
   console.log(`Logged in as ${username.value} using ${password.value} as the password`);
+
 
   localStorage.setItem('username', username.value);
   localStorage.setItem('pw', password.value);
+
+  // setTimeout(goToDash, 1000);
+  goToDash();
 }
 
+function goToDash() {
+  document.location.href="dash.html";
+}
+
+// OTP submission
 document.getElementById("OTPForm").addEventListener("submit", (event) => {
   event.preventDefault();
   successMessage.classList.remove("hidden");
   successMessage.textContent = `OTP Sent`;
   event.target.lastElementChild.value = 'Resend OTP';
+
+  // fake username
+  localStorage.setItem('username', phone.value);
+
+  goToDash();
 });

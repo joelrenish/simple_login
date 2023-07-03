@@ -15,9 +15,44 @@ header {
   background-color: #333;
   color: #fff;
   padding: 15px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
-img {
+.header-btn {
+  color: #fff;
+  text-decoration: none;
+  background-color: #333;
+  border: none;
+  font-size: 16px;
+  position: relative;
+  padding: 12px;
+}
+.header-btn::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.header-btn:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.header-btn:not(:hover)::after {
+  transform-origin: right;
+}
+
+.big-img {
   min-width: 400px;
   height: auto;
 }
