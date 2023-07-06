@@ -30,18 +30,18 @@
                 <div class="content">
                     <form id="loginForm">
                         <label for="username">Username</label>
-                        <input type="text" id="username" required maxlength="10" placeholder="username">
+                        <input type="text" id="username" class="login-input" required maxlength="10" placeholder="username">
                         <p id="usernameError" class="errorM hidden">Username can't include special characters.</p>
 
                         <label for="password">Password</label>
-                        <input type="password" id="password" required maxlength="8" placeholder="password">
+                        <input type="password" id="password" class="login-input" required maxlength="8" placeholder="password">
                         <p id="passwordError" class="errorM hidden">Password needs to include at least 1 special character and 1 number.</p>
 
                         <button type="submit" class="submit-btn">Login</button>
                     </form>
                     <form id="OTPForm" class="hidden">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" required maxlength="10" placeholder="123-456-7890">
+                        <input type="tel" id="phone" class="login-input" required maxlength="10" placeholder="123-456-7890">
                         <button type="submit" class="submit-btn">Send OTP</button>
                     </form>
                     <p id="successMessage" class="success hidden"></p>

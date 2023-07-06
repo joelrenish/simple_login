@@ -42,12 +42,10 @@ header {
   transform-origin: right;
   transition: transform 0.3s ease;
 }
-
 .header-btn:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
-
 .header-btn:not(:hover)::after {
   transform-origin: right;
 }
@@ -79,7 +77,7 @@ label {
   margin-top: 10px;
 }
 
-input {
+.login-input {
   display: block;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -87,13 +85,13 @@ input {
   margin-top: 3px;
   padding: 10px;
 }
-input:focus {
+.login-input:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 5px #007bff;
 }
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+.login-input::-webkit-outer-spin-button,
+.login-input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
@@ -140,9 +138,6 @@ input::-webkit-inner-spin-button {
   text-align: center;
 }
 
-.hidden {
-  display: none;
-}
 
 .center-nav {
   width: 100%;
@@ -170,4 +165,205 @@ input::-webkit-inner-spin-button {
 .selected {
   background-color: #f8f8f8;
   color: #000;
+}
+
+.main-container {
+  display: flex;
+  position: relative;
+  /* z-index: 1; */
+}
+
+.searchbtn {
+  height: 40px;
+  width: 40px;
+}
+
+.icon {
+  height: 60px;
+}
+
+.srchicn {
+  height: 100%;
+  background-color: rgb(87, 230, 222);
+}
+
+.searchbar {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.nav-img {
+  height: 30px;
+  background-color:rgba(255,255,255,0);
+}
+
+.nav-option {
+  width: 250px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.1s ease-in-out;
+  position: relative;
+  padding: 12px;
+  cursor: pointer;
+}
+.nav-option::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease;
+}
+.nav-option:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.nav-option:hover {
+  background-color: #c4c4c4;
+}
+.nav-option:not(:hover)::after {
+  transform-origin: right;
+}
+
+.nav-option h3 {
+  cursor: default;
+}
+
+.nav-container {
+  background-color: #f8f8f8;
+  height: 100vh;
+  width: 274px;
+  transition: all 0.3s ease-in-out;
+}
+.navclose {
+  padding-right: 0px;
+  width: 60px;
+}
+
+.box-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px 20px;
+  align-items: center;
+  margin: 0px 10px;
+}
+.main {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.box {
+  height: 130px;
+  width: 230px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px rgba(0, 30, 87, 0.751);
+  background-color: rgb(87, 230, 222);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.box:hover {
+  transform: scale(1.08);
+}
+
+.hidden {
+  display: none;
+}
+
+.topic {
+  font-size: medium;
+}
+
+.report-container {
+  min-height: 300px;
+  max-width: 1200px;
+  margin: 70px auto 0px auto;
+  background-color: #ffffff;
+  border-radius: 30px;
+  box-shadow: 3px 3px 10px rgb(188, 188, 188);
+  padding: 0px 20px 20px 20px;
+}
+
+.report-header {
+  height: 80px;
+  max-width: 1160px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 10px 20px;
+  border-bottom: 2px solid rgba(0, 20, 151, 0.59);
+}
+
+/* .recent-Articles {
+  font-size: 30px;
+  font-weight: 600;
+  color: #5500cb;
+} */
+
+.view {
+  height: 35px;
+  width: 90px;
+  border-radius: 8px;
+  background-color: #353535;
+  color: white;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.report-body {
+  max-width: 1160px;
+  overflow-x: auto;
+  padding: 20px;
+}
+.report-topic-heading,
+.item1 {
+  width: 1120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* .t-op {
+  font-size: 18px;
+  letter-spacing: 0px;
+} */
+
+.items {
+  width: 1120px;
+  margin-top: 15px;
+}
+
+.label-tag {
+  width: 100px;
+  text-align: center;
+  background-color: rgb(0, 177, 0);
+  color: white;
+  border-radius: 4px;
+}
+
+.current {
+  background-color: #7efbff;
+}
+.current:hover {
+  background-color: #67babd;
+}
+
+@media screen and (max-width: 850px) {
+  .nav-container {
+    width: 100%;
+  }
+  .navclose {
+    width: 0px;
+  }
 }
